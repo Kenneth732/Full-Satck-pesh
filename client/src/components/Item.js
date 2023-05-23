@@ -2,48 +2,48 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function Item() {
-  const [animals, setAnimals] = useState([]);
-  const [selectedAnimal, setSelectedAnimal] = useState(null);
+  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     fetch('/products')
       .then((res) => res.json())
-      .then((animalArrays) => {
-        setAnimals(animalArrays);
+      .then((itemArrays) => {
+        setItems(itemArrays);
       });
   }, []);
 
-  const handleCardClick = (animal) => {
-    setSelectedAnimal(animal);
+  const handleCardClick = (item) => {
+    setSelectedAnimal(item);
   };
 
   const handleCloseClick = () => {
-    setSelectedAnimal(null);
+    setSelectedItem(null);
   };
 
   return (
     <div className="App">
-      {animals.map((animal) => (
-        <div key={animal.id} className="animal-card">
+      {items.map((item) => (
+        <div key={item.id} className="animal-card">
           <div className="card" onClick={() => handleCardClick(animal)}>
             <div className="image-card">
-              <img src={animal.image} alt="animal" />
+              <img src={item.image} alt="item" />
             </div>
             <div className="text-card">
-              <h2 className="animal-name">{animal.name}</h2>
-              <p className="animal-description">{animal.description}</p>
+              <h2 className="animal-name">{item.name}</h2>
+              <p className="animal-description">{item.description}</p>
             </div>
           </div>
         </div>
       ))}
 
-      {selectedAnimal && (
+      {selectedItem && (
         <div className="overlay" onClick={handleCloseClick}>
           <div className="zoomed-card">
-            <img src={selectedAnimal.image} alt="animal" />
+            <img src={selectedItem.image} alt="animal" />
             <div className="text-card">
-              <h2 className="animal-name">{selectedAnimal.name}</h2>
-              <p className="animal-description">{selectedAnimal.description}</p>
+              <h2 className="animal-name">{selectedItem.name}</h2>
+              <p className="animal-description">{selectedItem.description}</p>
             </div>
           </div>
         </div>
