@@ -1,3 +1,5 @@
+
+
 Rails.application.routes.draw do
   resources :users
   resources :products, only: [:index, :show, :create]
@@ -7,3 +9,6 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
 end
+
+
+

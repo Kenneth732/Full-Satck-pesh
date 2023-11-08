@@ -2,7 +2,7 @@
   "name": "phase_4_password_protection_lab-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -13,6 +13,7 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",

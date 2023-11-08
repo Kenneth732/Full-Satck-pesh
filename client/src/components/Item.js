@@ -14,7 +14,7 @@ function Item() {
   }, []);
 
   const handleCardClick = (item) => {
-    setSelectedAnimal(item);
+    setSelectedItem(item);
   };
 
   const handleCloseClick = () => {
@@ -22,10 +22,10 @@ function Item() {
   };
 
   return (
-    <div className="App">
+    <div className="Item">
       {items.map((item) => (
         <div key={item.id} className="animal-card">
-          <div className="card" onClick={() => handleCardClick(animal)}>
+          <div className="card" onClick={() => handleCardClick(item)}>
             <div className="image-card">
               <img src={item.image} alt="item" />
             </div>
